@@ -1,15 +1,19 @@
 /* 🌍 BASE */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: #0f172a;
   color: white;
 }
 
 /* 📦 CONTENEDOR */
 .container {
   max-width: 1200px;
-  margin: 40px auto;
+  margin: 20px auto;
   padding: 20px;
 }
 
@@ -24,7 +28,7 @@ body {
 .header h2 {
   margin: 0;
   font-size: 22px;
-  color: black;
+  color: #f8fafc;
 }
 
 /* 🏷️ BADGE */
@@ -234,17 +238,49 @@ tr:nth-child(even) {
 
 /* 📱 RESPONSIVE */
 @media (max-width: 768px) {
+  .container {
+    margin: 10px auto;
+    padding: 15px;
+  }
+
   .form {
     grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 15px;
   }
 
   .header {
     flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .period-selector {
+    flex-direction: column;
     gap: 10px;
+    text-align: center;
+  }
+
+  .metrics-container {
+    grid-template-columns: 1fr;
   }
 
   table {
-    font-size: 12px;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .react-calendar {
+    width: 100% !important;
   }
 }
 
@@ -325,6 +361,13 @@ tr:nth-child(even) {
   font-size: 13px;
   line-height: 1.6;
   margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px;
+    font-size: 11px;
+  }
 }
 
 .footer strong {

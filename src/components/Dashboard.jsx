@@ -466,7 +466,6 @@ export default function Dashboard({ user, logout }) {
                 <th>Nombre del Proyecto</th>
                 <th>Horas Invertidas</th>
                 <th>Costo de Inversión</th>
-                <th>% Participación</th>
               </tr>
             </thead>
             <tbody>
@@ -476,7 +475,6 @@ export default function Dashboard({ user, logout }) {
                     <td>{p.nombre}</td>
                     <td>{p.horas}h</td>
                     <td>{formatCOP(p.costo)}</td>
-                    <td>{p.participacion}%</td>
                   </tr>
                 ))
               ) : (
