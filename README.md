@@ -1,16 +1,42 @@
-# React + Vite
+# Proyecto Hoja
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el archivo principal de documentación para el proyecto **Hoja**. Este repositorio integra diversas librerías de JavaScript de alto rendimiento para la gestión de interfaces de usuario y el procesamiento eficiente de datos.
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologías Incluidas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Basado en las dependencias configuradas, el proyecto utiliza las siguientes herramientas clave:
 
-## React Compiler
+*   **[SweetAlert2](https://sweetalert2.github.io/)**: Utilizado para mostrar diálogos y notificaciones atractivas, accesibles y personalizables, reemplazando las alertas nativas del navegador.
+*   **[NanoID](https://github.com/ai/nanoid)**: Un generador de IDs únicos, pequeños y seguros, ideal para crear identificadores compatibles con URLs.
+*   **Utilidades de Procesamiento**:
+    *   `word-wrap`: Para el formateo y ajuste automático de cadenas de texto largas.
+    *   `fill-range`: Para la expansión inteligente de rangos numéricos o alfabéticos.
+    *   `is-number`: Para validaciones robustas de tipos numéricos finitos.
+    *   `is-glob` y `is-extglob`: Para el soporte de patrones de búsqueda complejos (globbing).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Instalación y Configuración
 
-## Expanding the ESLint configuration
+Para poner en marcha el proyecto y configurar el entorno de desarrollo, ejecuta el siguiente comando en la raíz del directorio:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+## 📝 Ejemplo de Implementación (SweetAlert2)
+
+A continuación, se muestra un ejemplo básico de cómo integrar las alertas visuales en tu flujo de trabajo:
+
+```javascript
+import Swal from 'sweetalert2';
+
+Swal.fire({
+  title: '¡Bienvenido a Hoja!',
+  text: 'El entorno de desarrollo se ha configurado correctamente.',
+  icon: 'success',
+  confirmButtonText: 'Empezar'
+});
+```
+
+## ⚖️ Licencia
+
+Este proyecto y sus dependencias se rigen principalmente bajo la licencia **MIT**. Consulta los archivos individuales en `node_modules` para obtener detalles específicos de cada librería.
