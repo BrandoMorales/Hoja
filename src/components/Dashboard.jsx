@@ -106,6 +106,24 @@ export default function Dashboard({ user, logout }) {
 
     const calc = calcular();
 
+    const userKey = `registros_${user.email}`;
+    const actualData = JSON.parse(localStorage.getItem(userKey)) || [];
+
+    // Calcular el total de horas ya registradas para esta fecha específica
+    const horasYaRegistradas = actualData
+      .filter((r) => r.fecha === form.fecha)
+      .reduce((acc, r) => acc + r.horas, 0);
+
+    // Validación: El total acumulado en un día no puede superar las 24 horas
+    if (horasYaRegistradas + calc.horas > 24) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Límite diario excedido',
+        text: `Ya tienes ${horasYaRegistradas}h registradas el ${form.fecha}. No puedes registrar más de 24h totales por día.`,
+      });
+      return;
+    }
+
     if (form.tipo === "vacaciones" && calc.horas === 0) {
       Swal.fire({
         icon: 'warning',
@@ -127,8 +145,6 @@ export default function Dashboard({ user, logout }) {
     };
 
     // Guardar en el storage específico del usuario
-    const userKey = `registros_${user.email}`;
-    const actualData = JSON.parse(localStorage.getItem(userKey)) || [];
     const updatedData = [...actualData, nuevo];
     localStorage.setItem(userKey, JSON.stringify(updatedData));
 
@@ -301,6 +317,8 @@ export default function Dashboard({ user, logout }) {
           <input
             type="number"
             placeholder="Horas"
+            max={24} // Límite máximo visible en la UI
+            min={1}  // Límite mínimo visible en la UI
             value={form.horas}
             onChange={(e) =>
               setForm({ ...form, horas: e.target.value })
